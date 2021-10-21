@@ -6,6 +6,30 @@ const kmCost = kilometres * 0.21;
 
 let ticketPrice;
 
+let ticketValid = true;
+let errorMsg = '';
+
+if(kilometres <= 0){
+  ticketValid = false;
+  errorMsg = 'inserire un numero chilometri maggiore di 0';
+}
+if(isNaN(kilometres)){
+  ticketValid = false;
+  errorMsg = 'Inserire un numero'
+}
+
+if(age <= 0){
+  ticketValid = false;
+  errorMsg = 'inserire un numero di età maggiore di 0';
+}
+if(isNaN(kilometres)){
+  ticketValid = false;
+  errorMsg = 'Inserire un numero'
+}
+
+console.log('ticketValid',ticketValid)
+console.log('errorMsg',errorMsg)
+
 if(age <= 18){
   ticketPrice = kmCost * 60 / 100;
 }else if(age >=65){
@@ -14,11 +38,20 @@ if(age <= 18){
   ticketPrice = kmCost;
 }
 
-document.getElementById("ticketInfo").innerHTML =
-`
+console.log(ticketPrice);
+
+let ticketInfoStr = `
 Chilometri da percorrere: ${kilometres}Km <br>
 Età inserita: ${age} anni <br>
-Prezzo biglietto: ${ticketPrice} Euro
+Prezzo biglietto: <strong> ${ticketPrice.toFixed(2)} Euro </strong>
 `;
 
-console.log(ticketPrice);
+if(!ticketValid){
+  ticketInfoStr = "Errore!!! "+errorMsg
+}
+
+document.getElementById("ticketInfo").innerHTML = ticketInfoStr
+
+
+
+
