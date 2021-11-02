@@ -15,7 +15,7 @@ if(kilometres <= 0){
 }
 if(isNaN(kilometres)){
   ticketValid = false;
-  errorMsg = 'Inserire un numero'
+  errorMsg = 'Inserire un numero corretto'
 }
 
 if(age <= 0){
@@ -24,7 +24,7 @@ if(age <= 0){
 }
 if(isNaN(kilometres)){
   ticketValid = false;
-  errorMsg = 'Inserire un numero'
+  errorMsg = 'Inserire un numero corretto'
 }
 
 console.log('ticketValid',ticketValid)
